@@ -14,11 +14,12 @@ var nextTerm = [UInt8]()
 var digit: UInt8
 var currentChar: UInt8
 var digitCount: UInt8 = 0
-let max = 60
+let max = 80
 
 terms.append(term)
 
-for _ in 0..<(max-1) {
+for i in 0..<(max-1) {
+    if (i % 10 == 0) { print("i: \(i)") }
     digit = term[0]
     for j in 0..<term.count {
         currentChar = term[j]
@@ -37,6 +38,7 @@ for _ in 0..<(max-1) {
     digitCount = 0
 }
 
+print("\n\n")
 let message = terms.enumerated().map { (i, term) in
     return "\(i+1): \(term.count) digits"
 }[0...(max-1)].joined(separator: "\n")
